@@ -23,9 +23,15 @@ document.addEventListener('input', () => {
     let totalBillPerPerson = (totalBill / numberOfPeople).toFixed(2);    
     $("#totalTipAmtPerPerson").text(totalTipPerPerson);
     $("#totalBillAmtPerPerson").text(totalBillPerPerson);
-  } else { console.log("Else Not a Number")}  
+    $("#zero").addClass("d-none");
+  } else { 
+    $("#zero").removeClass("d-none");
+    console.log("Else Not a Number");
+  }  
 })
 $('#reset').click(()=> {
+  $("#bill").val("");
+  $("#numberOfPeople").val("");
   $("#totalTipAmtPerPerson").text('0.00');
   $("#totalBillAmtPerPerson").text('0.00');
 })
