@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">  
+  <title>Tip Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <main>   
+    <h1>spli <br> tter</h1>
+    <div>
+
+      <form class="first" id="tip-form">      
+        <div class="input-group">
+          <p>Bill</p>
+          <input type="number" id="bill" class="input bill-input" step="0.01" placeholder="0" required>
+        </div>
+        <div>
+          <p>Select Tip %</p>
+          <div class="button-group underline-indicators flex-wrap">
+            <!-- <button type="button" class="btn" id="btn5">5%</button> -->
+            <input type="button" class="btn" value="5%">
+            <input type="button" class="btn" value="10%">
+            <input type="button" class="btn" value="15%">
+            <input type="button" class="btn" value="25%">
+            <input type="button" class="btn" value="50%">
+            <input type="number" class="btn input" placeholder="Custom">
+          </div>
+        </div>
+        <div>
+          <div class="flex">
+            <p>Number of People</p>
+            <p id="zero" class="d-none">Can't be zero</p>
+          </div>
+          <input type="number" class="input people-input" id="numberOfPeople" placeholder="0" required>
+        </div>
+      </form>
+      
+      <div class="second">
+        <div>          
+          <div>          
+            <p>Tip Amount <span>/ person</span></p>
+            <span>$<span id="totalTipAmtPerPerson">0.00</span></span>
+          </div>
+          <div>          
+            <p>Total <span>/ person</span></p>
+            <span>$<span id="totalBillAmtPerPerson">0.00</span></span>
+          </div>
+        </div>
+        <input type="reset"  value="reset" id="reset" class="btn reset-btn">
+      </div>      
+
+    </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="1.js"></script>
+</body>
+</html>

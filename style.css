@@ -1,0 +1,268 @@
+/* Box sizing rules */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* Prevent font size inflation */
+html {
+  text-size-adjust: none;
+}
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'], ol[role='list'] {
+  list-style: none;
+}
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4, button, input, label {
+  line-height: 1.1;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  color: currentColor;
+  text-decoration-skip-ink: auto;
+}
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+/* Make sure text areas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+:root {
+  --white: 0 0% 100%;
+  --strong-cyan: 172 67% 45%;
+  --grayish-cyan: 184 14% 56%;
+  --very-dark-cyan: 183 100% 15%;
+  --dark-grayish-cyan: 186 14% 43%;
+  --light-grayish-cyan: 185 41% 84%;
+  --very-light-grayish-cyan: 189 41% 97%;
+}
+/* 
+:root {
+  --white: hsl(0, 0%, 100%);
+  --strong-cyan: hsl(172, 67%, 45%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+}
+*/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+}
+body {
+  line-height: 1.5;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  background-color: hsl(var(--light-grayish-cyan));
+  margin-top: 2rem;
+}
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+p {
+  max-width: 62ch;
+  margin-bottom: 2rem;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1.5rem;    
+}
+main > h1 { 
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: hsl(var(--very-dark-cyan));
+}
+main > div {
+  width: 100%;
+  background-color: hsl(var(--white));
+  border-radius: 1rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-areas: "first" 'second';
+}
+.first { grid-area: first; }
+.second { grid-area: second; }
+@media (min-width:768px) {
+  body {
+    margin-top: 0;
+  }
+  main {
+    margin: 2rem;
+    max-width: 860px;
+  }
+  main > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    grid-template-areas: "first second";
+  }
+} 
+/* ------------------------------------------------Button---------------------------------------------------  */
+.btn {
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 30px;
+  border-radius: 5px;
+  color: hsl(var(--white));
+  background-color: hsl(var(--very-dark-cyan));
+}
+.btn:focus,
+.btn:focus-visible {  
+  color: hsl(var(--very-dark-cyan));
+  background-color: hsl(var(--strong-cyan));
+}
+.btn:hover {
+  color: hsl(var(--very-dark-cyan));
+  background-color: hsl(var(--strong-cyan) / .5);
+}
+.button-group {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 
+  '5 10'
+  '15 25'
+  '50 c'
+  ;
+}
+.button-group:nth-child(1) { grid-area: 5; }
+.button-group:nth-child(2) { grid-area: 10; }
+.button-group:nth-child(3) { grid-area: 15; }
+.button-group:nth-child(4) { grid-area: 25; }
+.button-group:nth-child(5) { grid-area: 50; }
+.button-group:nth-child(6) { grid-area: c; }
+@media (min-width:525px) {
+  .button-group {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    '5 10 15'
+    '25 50 c'
+    ;
+  }
+}
+/* ------------------------------------------------Input Field---------------------------------------------------  */
+.first p {
+  font-size: 1rem;
+  color: hsl(var(--dark-grayish-cyan));
+  margin: 1rem 0 .5rem;
+}
+.input-group {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.input {
+  width: 100%;
+  border: 0;
+  font-size: 1.2rem;
+  text-align: right;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  color: hsl(var(--very-dark-cyan));
+  background-color: hsl(var(--dark-grayish-cyan) / .1);
+}
+.input::placeholder {
+  font-size: 1.2rem;
+  color: hsl(var(--dark-grayish-cyan));
+}
+.input:focus,
+.input:hover {
+  outline: none;
+  box-shadow: none;
+  cursor: pointer;
+  color: hsl(var(--very-dark-cyan));
+  background-color: hsl(var(--light-grayish-cyan)  / .1);
+  border: 2px solid hsl(var(--strong-cyan));
+}
+.bill-input {
+  background-image: url(./images/icon-dollar.svg);
+  background-position: 15px center;
+  background-repeat: no-repeat;
+}
+.people-input {
+  background-image: url(./images/icon-person.svg);
+  background-position: 15px center;
+  background-repeat: no-repeat;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+/* ------------------------------------------------End Input Field---------------------------------------------------  */
+/* ------------------------------------------------Second Section---------------------------------------------------  */
+.second {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: .5rem;
+  color: hsl(var(--white));
+  background-color: hsl(var(--very-dark-cyan));
+}
+.second > div > div {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.second > div > div > p {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;  
+}
+.second > div > div > p > span {
+  color: hsl(var(--light-grayish-cyan) / .7);
+}
+.second > div > div > span { 
+  color: hsl(var(--strong-cyan));
+  font-size: 1.8rem;
+  align-self: start;
+}
+.reset-btn {
+  text-transform: uppercase;
+  color: hsl(var(--very-dark-cyan));
+  background-color: hsl(var(--strong-cyan));
+}
+.reset-btn:hover {
+  background-color: hsl(var(--light-grayish-cyan));
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#zero {
+  color:  rgba(204, 72, 24, 0.685);
+}
+.d-none { display: none; }
+.d-block { display: block;}
+.b-2 { border: 2px solid rgba(204, 72, 24, 0.685); }
+.b-none { border: none; }
